@@ -3,6 +3,9 @@
 A Go-based program.
 Call the program from your commandline, and add the name of the component you want to create.
 
+Pro Tip: In VSCode, right click the folder where you want to make the component, and click 'Open in Integrated Terminal'. Call genponent there.
+Super-Pro Tip: Add genponent to your path so you can call it using `genponent` instead of "C:/User/Me/Programs/Downloads/genponent" etc
+
 ### Basic Functionality
 
 Genponent will create the following for you:
