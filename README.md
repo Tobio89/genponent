@@ -41,7 +41,8 @@ A SCSS file, named $COMPONENT.module.scss:
 Add multiple component names with spaces between, and genponent will produce multiple components.
 
 Optional flags include:
-`-j : Use jsx instead of tsx` This will also remove the interface Props declaration.
-`-c : Use css instead of scss` The style file as well as import will use .css instead of .scss
-`-s : Remove styling completely` genponent will skip generating the style file completely, and will not add a style import line.
-`-p : Remove props completely` genponent will neither add a Props declaration, nor add props as an argument to the function.
+
+- `-j : Use jsx instead of tsx` This will also remove the interface Props declaration.
+- `-c : Use css instead of scss` The style file as well as import will use .css instead of .scss
+- `-s : Remove styling completely` genponent will skip generating the style file completely, and will not add a style import line.
+- `-p : Remove props completely` genponent will neither add a Props declaration, nor add props as an argument to the function.
