@@ -16,7 +16,7 @@ func writeReactFile(c *templates.ComponentRequest) {
 		fileType = "jsx"
 	}
 
-	f, err := os.Create(fmt.Sprintf("./%s/index.%s", c.ComponentName, fileType))
+	f, err := os.Create(fmt.Sprintf("./%s/%s.%s", c.ComponentName, c.ComponentName, fileType))
 	if err != nil {
 		panic(err)
 	}
@@ -44,9 +44,27 @@ func CreateComponent(c *templates.ComponentRequest) {
 	os.Mkdir(c.ComponentName, os.ModePerm)
 	fmt.Println("Writing React file...")
 	writeReactFile(c)
+	fmt.Println("Writing index file...")
+	createBarrelFile(c)
 	if !c.SkipStyle {
 		fmt.Println("Writing style file...")
 		writeStyleFile(c)
 	}
 	fmt.Println("Component " + c.ComponentName + " created!")
+}
+
+func createBarrelFile(c *templates.ComponentRequest) {
+
+	var fileType = "tsx"
+	if c.UseJavaScript {
+		fileType = "jsx"
+	}
+	f, err := os.Create(fmt.Sprintf("./%s/index.%s", c.ComponentName, fileType))
+	if err != nil {
+		panic(err)
+	}
+	defer f.Close()
+
+	content := fmt.Sprintf("import %s from \"./%s\";\nexport default %s", c.ComponentName, c.ComponentName, c.ComponentName)
+	f.WriteString(content)
 }
